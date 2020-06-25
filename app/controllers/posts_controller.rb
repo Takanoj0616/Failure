@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 
   def new
     @posts = Post.new
-
+    @post.photo.build
   end
 
   def create
@@ -15,6 +15,14 @@ class PostsController < ApplicationController
      redirect_to user_path
      flash[:alert] = "投稿に失敗しました"
    end
+ end
+
+ def index
+    @posts = Post.limit(10).includes(:photos, :user).order('created_at DESC')
+ end
+
+ def show
+    @post = Post.find_by(id: params[:id])
  end
 
  private
