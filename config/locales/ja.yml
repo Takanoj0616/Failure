@@ -95,3 +95,14 @@ ja:
       not_saved:
         one: "エラーが発生したため %{resource} は保存されませんでした:"
         other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした:"
+
+ja:
+  activerecord:
+    attributes:
+      inquiry:
+        name: "お名前"
+        password: "パスワード"
+        password_confirmation: "パスワード確認"
+        email: "メールアドレス"
+        relationship: "送る人"
+        content: "何か伝えたいこと"

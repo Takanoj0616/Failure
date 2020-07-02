@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users,
     controllers: { registrations: 'registrations' }
-
   root 'posts#index'
   get '/users/:id', to: 'users#show', as: 'user'
   resources :posts, only: %i(index new create show destroy) do
@@ -9,4 +8,8 @@ Rails.application.routes.draw do
    resources :likes, only: %i(create destroy)
    resources :comments, only: %i(create destroy)
  end
+
+ get 'inquiries/new'
+ post 'inquiries/confirm'
+ post 'inquiries/thanks'
 end
