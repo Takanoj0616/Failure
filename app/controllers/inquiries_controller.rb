@@ -1,11 +1,25 @@
 class InquiriesController < ApplicationController
-  def new
-    @inwuiry = Inquiry.new
-  end
+ def new
+   @inquiry = Inquiry.new
+ end
 
-  def confirm
+ def confirm
+     @inquiry = Inquiry.new(inquiry_params)
+  if @inquiry.save
+    render "confirm"
+  else
+    render :new
   end
+ end
 
-  def thanks
+ def thanks
+     @inquiry = Inquiry.new(inquiry_params)
+     InquiryMailer.received_email(@inquiry).deliver_now
+ end
+
+ private
+
+  def inquiry_params
+    params.require(:inquiry).permit(:name, :email, :relationship, :content)
   end
 end
