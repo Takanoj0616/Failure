@@ -9,7 +9,7 @@ Rails.application.routes.draw do
    resources :comments, only: %i(create destroy)
  end
 
- get 'inquiries/new'
- post 'inquiries/confirm'
- post 'inquiries/thanks'
+  get 'inquiries/new'
+  post 'inquiries/confirm'
+  post 'inquiries/thanks'
 end
